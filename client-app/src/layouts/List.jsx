@@ -1,12 +1,22 @@
+import { Flex } from '@chakra-ui/react'
 import React from 'react'
+import Card from '../components/Card'
 
 const List = ({ tasks }) => {
   return (
-    <div>
+    <Flex direction={'column'} width={'full'} paddingTop='2' paddingX='4'>
       {tasks.map((x) => {
-        return <span>{x.content}</span>
+        return (
+          <Card
+            key={x.id}
+            id={x.id}
+            content={x.content}
+            completed={x.completed}
+            deadline={x.deadline}
+          />
+        )
       })}
-    </div>
+    </Flex>
   )
 }
 
